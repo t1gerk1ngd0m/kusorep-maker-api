@@ -22,4 +22,6 @@
 class Kusorep < ApplicationRecord
   belongs_to :theme
   belongs_to :member
+
+  validates :content, presence: true
 end

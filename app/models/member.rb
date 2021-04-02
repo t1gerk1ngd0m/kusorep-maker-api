@@ -18,4 +18,7 @@
 #
 class Member < ApplicationRecord
   belongs_to :room
+  has_many :kusoreps, dependent: :destroy
+
+  validates :name, presence: true
 end
