@@ -1,4 +1,21 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: members
+#
+#  id         :uuid             not null, primary key
+#  name       :string           default(""), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  room_id    :uuid             not null
+#
+# Indexes
+#
+#  index_members_on_room_id  (room_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (room_id => rooms.id)
+#
 
 one:
   room: one
