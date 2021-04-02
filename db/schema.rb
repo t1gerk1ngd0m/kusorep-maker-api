@@ -10,15 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_121124) do
+ActiveRecord::Schema.define(version: 2021_04_02_122549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "kusoreps", force: :cascade do |t|
+    t.text "content", default: "", null: false
+    t.uuid "theme_id", null: false
+    t.uuid "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_kusoreps_on_member_id"
+    t.index ["theme_id"], name: "index_kusoreps_on_theme_id"
+  end
+
+  create_table "members", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "room_id", null: false
+    t.string "name", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_members_on_room_id"
+  end
 
   create_table "rooms", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "themes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "content", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "kusoreps", "members"
+  add_foreign_key "kusoreps", "themes"
+  add_foreign_key "members", "rooms"
 end
