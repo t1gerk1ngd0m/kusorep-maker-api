@@ -91,6 +91,7 @@ GEM
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    graphql (1.12.6)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     listen (3.5.1)
@@ -196,6 +197,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   enum_help
+  graphql
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pry-byebug
