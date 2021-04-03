@@ -4,14 +4,24 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :rooms, Types::Objects::RoomType.connection_type, null: false
+    def rooms
+      Room.all
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :themes, Types::Objects::ThemeType.connection_type, null: false
+    def themes
+      Theme.all
+    end
+
+    field :room, Types::Objects::RoomType, null: false
+    def room
+      Room.order('RANDOM()').first
+    end
+
+    field :theme, Types::Objects::ThemeType, null: false
+    def theme
+      Theme.order('RANDOM()').first
     end
   end
 end
