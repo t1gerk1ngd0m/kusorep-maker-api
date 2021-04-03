@@ -6,5 +6,10 @@ module Types
     def test_field
       "Hello World"
     end
+
+    field :new_room, mutation: Mutations::NewRoom
+    field :new_theme, mutation: Mutations::NewTheme
+    field :new_member, mutation: Mutations::NewMember
+    field :new_kusorep, mutation: Mutations::NewKusorep
   end
 end

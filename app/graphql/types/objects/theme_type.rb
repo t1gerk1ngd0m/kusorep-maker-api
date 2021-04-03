@@ -8,4 +8,9 @@ class Types::Objects::ThemeType < Types::BaseObject
   def kusoreps
     object.kusoreps
   end
+
+  field :kusorep, Types::Objects::KusorepType, null: true
+  def kusorep(id:)
+    object.kusoreps.find(id)
+  end
 end
