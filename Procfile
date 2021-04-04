@@ -1,2 +1,2 @@
 release: bin/rails db:migrate
-release: bin/rails db:seed_fu
+web: bundle exec rails s -p $PORT -e $RAILS_ENV
