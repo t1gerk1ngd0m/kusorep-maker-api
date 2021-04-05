@@ -11,5 +11,6 @@ module Types
     field :new_theme, mutation: Mutations::NewTheme
     field :new_member, mutation: Mutations::NewMember
     field :new_kusorep, mutation: Mutations::NewKusorep
+    field :new_room_and_member, mutation: Mutations::NewRoomAndMember
   end
 end
