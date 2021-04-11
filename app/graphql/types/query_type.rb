@@ -14,9 +14,11 @@ module Types
       Theme.all
     end
 
-    field :room, Types::Objects::RoomType, null: false
-    def room
-      Room.order('RANDOM()').first
+    field :room, Types::Objects::RoomType, null: false do
+      argument :id, ID, required: true
+    end
+    def room(id:)
+      Room.find(id)
     end
 
     field :theme, Types::Objects::ThemeType, null: false
