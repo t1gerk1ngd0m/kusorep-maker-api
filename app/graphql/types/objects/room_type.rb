@@ -7,4 +7,9 @@ class Types::Objects::RoomType < Types::BaseObject
   def members
     object.members
   end
+
+  field :kusoreps, [Types::Objects::KusorepType], null: true
+  def kusoreps
+    object.members.map(&:kusoreps).flatten
+  end
 end
