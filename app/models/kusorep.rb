@@ -2,11 +2,12 @@
 #
 # Table name: kusoreps
 #
-#  id         :bigint           not null, primary key
-#  content    :text             default(""), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  member_id  :uuid             not null
+#  id          :bigint           not null, primary key
+#  content     :text             default(""), not null
+#  vote_number :integer          default(0), not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  member_id   :uuid             not null
 #
 # Indexes
 #
