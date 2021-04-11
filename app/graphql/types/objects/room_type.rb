@@ -1,5 +1,6 @@
 class Types::Objects::RoomType < Types::BaseObject
   field :id, ID, 'ID', null: false
+  field :theme, String, 'ルームのテーマ', null: true
   field :created_at, Types::Scalars::DateTime, '作成日時', null: false
   field :updated_at, Types::Scalars::DateTime, '更新日時', null: false
 
