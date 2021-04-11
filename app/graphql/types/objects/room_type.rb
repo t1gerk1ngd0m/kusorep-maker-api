@@ -3,7 +3,7 @@ class Types::Objects::RoomType < Types::BaseObject
   field :created_at, Types::Scalars::DateTime, '作成日時', null: false
   field :updated_at, Types::Scalars::DateTime, '更新日時', null: false
 
-  field :members, Types::Objects::MemberType.connection_type, null: true
+  field :members, [Types::Objects::MemberType], null: true
   def members
     object.members
   end
